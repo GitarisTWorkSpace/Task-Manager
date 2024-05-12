@@ -63,10 +63,10 @@ export const Registration = () => {
                             value="Стажер" 
                             defaultChecked={true} 
                             onClick={changeProfileType}/>
-                        <input className={userProfileType === "Настваник" ? styles.select__button__activ : styles.select__button} 
+                        <input className={userProfileType === "Наставник" ? styles.select__button__activ : styles.select__button} 
                             name="profile_type"  
                             type="button" 
-                            value="Настваник" 
+                            value="Наставник" 
                             onClick={changeProfileType}/>
                     </div>
                     <input type='password' placeholder='Пароль' className={styles.input} onInput={(e) => setUserPassword(e.target.value)}/>
