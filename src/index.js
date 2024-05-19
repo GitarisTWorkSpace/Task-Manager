@@ -8,6 +8,11 @@ import { HomePage } from './components/pages/home/HomePage';
 import { ErrorPage } from './components/pages/error/ErrorPage';
 import { AuthProvider } from './components/utils/AuthContext';
 import { ProfilePage } from './components/pages/profile/ProfilePage';
+import { ProjectList } from './components/pages/projectsList/ProjectList';
+import { DiagramGant } from './components/pages/diagram/DiagramGant';
+import { TaskList } from './components/pages/taskList/TaskList';
+import { KanbanBoard } from './components/pages/kanbanBoard/KanbanBoard';
+import { MainPage } from './components/pages/main/MainPage';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +38,28 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <HomePage />,
+    children: [
+      {
+        path: "/main",
+        element: <MainPage />
+      },
+      {
+        path: "/projects",
+        element: <ProjectList />
+      },
+      {
+        path: "/tasks",
+        element: <TaskList/>
+      },
+      {
+        path: "/diagram",
+        element: <DiagramGant />
+      },
+      {
+        path: "/kanban",
+        element: <KanbanBoard />
+      }
+    ],
     errorElement: <ErrorPage />
   },
   {

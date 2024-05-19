@@ -108,7 +108,7 @@
 .user__block{
     display: flex;
     flex-direction: column;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .user__change_info{
@@ -199,6 +199,8 @@
     height: 40px;
     width: 300px;
 
+    margin-left: 20px;
+
     border: none;
     border-radius: 10px;
 
@@ -215,4 +217,28 @@
 
 .delete_profile:hover{
     background-color: #a11e29;
+}
+
+.save_button {
+    height: 40px;
+    width: 300px;
+
+    margin-top: 20px;
+
+    background-color: #46b425;
+    color: #fff;
+
+    font-size: 18px;
+    font-weight: 400;
+
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition: all 0.3s;
+}
+
+.save_button:hover{
+    background-color: #378f1c;
 }
