@@ -35,15 +35,17 @@ export const HomePage = () => {
     return (
       <div className={styles.main}>
             <Header backButton={true} title={"Главная"} profileButton={true}/>
-            <div className={styles.navBar}>
-                <NavLink to="/main" className={({isActive}) => {return isActive ? styles.nav__button_activate : styles.nav__button} }>Главная</NavLink>
-                <NavLink to="/projects" className={styles.nav__button}>Проекты</NavLink>
-                <NavLink to="/tasks" className={styles.nav__button}>Задачи</NavLink>
-                <NavLink to="/diagram" className={styles.nav__button}>Диграмма Ганта</NavLink>
-                <NavLink to="/kanban" className={styles.nav__button}>Канбан</NavLink>
-            </div>
-            <div className={styles.page}>
-                <Outlet />
+            <div className={styles.home}>
+                <div className={styles.navBar}>
+                    <NavLink to="/main" className={({isActive}) => {return isActive ? styles.nav__button_activate : styles.nav__button} }>Главная</NavLink>
+                    <NavLink to="/projects" className={({isActive}) => {return isActive ? styles.nav__button_activate : styles.nav__button} }>Проекты</NavLink>
+                    <NavLink to="/tasks" className={({isActive}) => {return isActive ? styles.nav__button_activate : styles.nav__button} }>Задачи</NavLink>
+                    <NavLink to="/diagram" className={({isActive}) => {return isActive ? styles.nav__button_activate : styles.nav__button} }>Диграмма Ганта</NavLink>
+                    <NavLink to="/kanban" className={({isActive}) => {return isActive ? styles.nav__button_activate : styles.nav__button} }>Канбан</NavLink>
+                </div>
+                <div className={styles.page}>
+                    <Outlet />
+                </div>
             </div>
       </div>
     )
