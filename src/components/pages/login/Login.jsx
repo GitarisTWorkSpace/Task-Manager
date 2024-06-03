@@ -4,6 +4,7 @@ import styles from './login.module.css'
 import { Header } from '../../UI/Header/Header'
 import { AuthContext } from '../../utils/AuthContext'
 import axios from 'axios'
+import { autoAuth } from '../../utils/autoAuth'
 
 export const Login = () => {
     const {isLoggedIn, setIsLoggedIn} = useContext(AuthContext)
@@ -12,23 +13,36 @@ export const Login = () => {
 
     const navigate = useNavigate()
 
-    useEffect(() => {
-      if (isLoggedIn)
-        navigate('/')
-    }, [])
+    useEffect(()=>{
+        if (autoAuth()){
+            setIsLoggedIn(true)
+            navigate('/')
+        }
+        else {
+            navigate('/login')
+        }
+    },[])
 
     const submitForm = async () =>  {
         console.log(userEmail)
         console.log(userPassword)
 
-        const response = await axios.post('http://127.0.0.1:8000/api/jwt/login/?email='+userEmail+'&password='+userPassword)
-        const accessCode = await response.data.access_token
-
-        localStorage.setItem('accessCode', accessCode)
-        console.log(isLoggedIn)
-        setIsLoggedIn(true)
-        console.log(accessCode)
-        navigate('/')
+        try{
+            const response = await axios.post('http://127.0.0.1:8000/api/auth/login',{
+            email: userEmail,
+            password: userPassword
+            })
+            
+            const tokens = await response.data;
+            localStorage.setItem('access_token', tokens.access_token)
+            localStorage.setItem('refresh_token', tokens.refresh_token)
+            console.log(tokens)
+            console.log(isLoggedIn)
+            setIsLoggedIn(true)
+            navigate('/')
+        } catch(e) {
+            console.log(e)
+        }
     }
 
     return (
@@ -40,10 +54,6 @@ export const Login = () => {
                     <input type='email' placeholder='Почта' className={styles.input} onInput={(e) => setUserEmail(e.target.value)}/>
                     <input type='password' placeholder='Пароль' className={styles.input} onInput={(e) => setUserPassword(e.target.value)}/>
                     <button className={styles.button} onClick={submitForm}>Войти</button>
-                </div>
-                <div className={styles.nav}>
-                  <Link to='/login' className={styles.nav__button}>Войти</Link>
-                  <Link to='/registration' className={styles.nav__button}>Регистрация</Link>
                 </div>
             </div>
         </div>

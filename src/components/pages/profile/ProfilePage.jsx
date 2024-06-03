@@ -4,6 +4,7 @@ import { AuthContext } from '../../utils/AuthContext'
 import styles from './profile.module.css'
 import axios from 'axios'
 import { Header } from '../../UI/Header/Header'
+import { autoAuth } from '../../utils/autoAuth'
 
 export const ProfilePage = () => {
     const {isLoggedIn, setIsLoggedIn} = useContext(AuthContext)
@@ -118,12 +119,15 @@ export const ProfilePage = () => {
         setConfirmDeleteAccount(!confirmDeleteAccount)
     }
 
-    useEffect(() => {
-        if (!isLoggedIn){
+    useEffect(()=>{
+        if (autoAuth()){
+            setIsLoggedIn(true)
+        }
+        else {
             navigate('/login')
         }
+
         if (params.userId == null){
-            console.log("sdkfnsduygbds")
             getMeInfo()
         } else 
             getUserInfo()
