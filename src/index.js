@@ -5,12 +5,11 @@ import './index.css';
 import { Login } from './components/pages/login/Login';
 import { HomePage } from './components/pages/home/HomePage';
 import { ErrorPage } from './components/pages/error/ErrorPage';
-import { AuthProvider } from './components/utils/AuthContext';
-import { ProfilePage } from './components/pages/profile/ProfilePage';
-import { DiagramGant } from './components/pages/diagram/DiagramGant';
+import { AuthProvider } from './utils/AuthContext';
+import { MyProfile } from './components/pages/profile/MyProfile';
 import { TaskList } from './components/pages/taskList/TaskList';
-import { KanbanBoard } from './components/pages/kanbanBoard/KanbanBoard';
-import { MainPage } from './components/pages/main/MainPage';
+import { autoAuth } from './utils/autoAuth';
+import { TaskInfo } from './components/pages/taskInfo/TaskInfo';
 
 const router = createBrowserRouter([
   {
@@ -20,33 +19,29 @@ const router = createBrowserRouter([
   },
   {
     path: '/user/me',
-    element: <ProfilePage />,
+    element: <MyProfile />,
+    loader: autoAuth,
     errorElement: <ErrorPage />
   },
-  {
-    path: 'user/:userId',
-    element: <ProfilePage />,
-    errorElement: <ErrorPage />
-  },
+  // {
+  //   path: 'user/:userId',
+  //   element: <ProfilePage />,
+  //   errorElement: <ErrorPage />
+  // },
   {
     path: "/",
     element: <HomePage />,
+    loader: autoAuth,
     children: [
       {
-        path: "/main",
-        element: <MainPage />
-      },
-      {
         path: "/tasks",
-        element: <TaskList/>
+        element: <TaskList/>,
+        loader: autoAuth,
       },
       {
-        path: "/diagram",
-        element: <DiagramGant />
-      },
-      {
-        path: "/kanban",
-        element: <KanbanBoard />
+        path: "/task/:taskId",
+        element: <TaskInfo/>,
+        loader: autoAuth,
       }
     ],
     errorElement: <ErrorPage />

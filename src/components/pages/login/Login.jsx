@@ -1,10 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useLoaderData, useNavigate } from 'react-router-dom'
 import styles from './login.module.css'
 import { Header } from '../../UI/Header/Header'
-import { AuthContext } from '../../utils/AuthContext'
+import { AuthContext } from '../../../utils/AuthContext'
 import axios from 'axios'
-import { autoAuth } from '../../utils/autoAuth'
 
 export const Login = () => {
     const {isLoggedIn, setIsLoggedIn} = useContext(AuthContext)
@@ -13,13 +12,12 @@ export const Login = () => {
 
     const navigate = useNavigate()
 
+    const access_token = useLoaderData()
+
     useEffect(()=>{
-        if (autoAuth()){
-            setIsLoggedIn(true)
+        if (access_token){
             navigate('/')
-        }
-        else {
-            navigate('/login')
+            setIsLoggedIn(true)
         }
     },[])
 
