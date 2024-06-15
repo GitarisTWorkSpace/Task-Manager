@@ -52,6 +52,31 @@ export const TaskInfo = () => {
         setTaskInfo(data)
     }
 
+    const changeScore = async (score) => {
+        console.log(score)
+        setTaskInfo({...taskInfo, score: score})
+        if (score === '') return        
+        const response = await axios.put(RootUrl+'/task/'+taskId, {
+            title: taskInfo.title,
+            description: taskInfo.description,
+            create_at: taskInfo.create_at,
+            start_task: taskInfo.start_task,
+            finish_task: taskInfo.finish_task,
+            score: score,
+            status: taskInfo.status,
+            student: taskInfo.student,
+            mentor: taskInfo.mentor
+        }, {
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('access_token')
+        }})
+  
+        const data = await response.data
+        console.log(data)
+  
+        setTaskInfo(data)
+    }
+
     useEffect(() => {
         if (accessToken == null){
             navigate('/login') 
@@ -71,10 +96,11 @@ export const TaskInfo = () => {
           const day = reverseDate.substring(8, 10)
           return day+'.'+mounth+'.'+year
         }
-      }
+    }
 
     return (
         <div className={styles.main}>
+            <div className={styles.edit}><Link to={'/task/edit/'+taskInfo.index} className={styles.edit_button}>Редактировать</Link></div>
             <div className={styles.title}><span className={styles.title_text}>{taskInfo.title}</span></div>
             <div className={styles.deadline}><span className={styles.deadline_text}>{endDate(taskInfo.start_task)} - {endDate(taskInfo.finish_task)}</span></div>
             <div className={styles.description}>
@@ -85,6 +111,7 @@ export const TaskInfo = () => {
             <div style={{display: "flex", justifyContent: "center", alignItems: "center",}}>
                 <div className={styles.wrapper}>
                     <div className={styles.status}>
+                        <span className={styles.status_title}>Состоние</span>
                         <select className={styles.status_dropdown} value={taskInfo.status} onChange={(e) => changeStatus(e.target.value)}>
                             <option value="Новые">Новые</option>
                             <option value="В работе">В работе</option>
@@ -93,14 +120,17 @@ export const TaskInfo = () => {
                     </div>
                     <div className={styles.mentor}>
                         <span className={styles.mentor_title}>Наставник</span>
-                        <Link to='/' className={styles.mentor_name}>{taskInfo.mentor}</Link>
+                        {/* <Link to={'/user/'+taskInfo.mentor} className={styles.mentor_name}>{taskInfo.mentor}</Link> */}
+                        <Link to={'/user/'+taskInfo.mentor} className={styles.mentor_name}>Sylvia Robinson</Link>
                     </div>
                 </div>
             </div>
             <div className={styles.score}>
-                <div className={styles.score_wrapper} style={{backgroundColor: "#505050", height: '100%', }}>
+                <div className={styles.score_wrapper}>
                     <span className={styles.score_title}>Оценка</span>
-                    <input type="number"  className={styles.score_input}/>
+                    {currentUserInfo.role != 'Стажер' 
+                    ? <input type="number" className={styles.score_input} value={taskInfo.score} onChange={(e) => changeScore(e.target.value)}/> 
+                    : <div className={styles.score_text}>{taskInfo.score}</div>}
                 </div>
             </div>
             <div className={styles.comment}>

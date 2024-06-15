@@ -1,0 +1,276 @@
+.main{
+    background-color: #343434;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    color: #fff;
+}
+
+.profile{
+    display: flex;
+    height: calc(100vh - 62px);
+}
+
+.left_bar{
+    min-width: 300px;
+    height: 100%;
+    border-right: 2px solid #fff;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.profile_image{
+    margin: 15px;
+
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.img{
+    height: 270px;
+    width: 270px;
+    padding-bottom: 20px;
+}
+
+.img_input{
+    display: none;
+}
+
+.img_button{
+    height: 42px;
+    width: 260px;
+
+    background-color: #27ae60;
+    color: #fff;
+
+    font-size: 18px;
+    font-weight: 400;
+
+    padding-left: 10px;
+
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.log_out{
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: end;
+
+    padding-bottom: 30px;
+}
+
+.log_out__button{
+    width: calc(100% - 30px);
+    height: 40px;
+
+    font-size: 18px;
+    font-weight: 400;
+
+    color: #fff;
+    background-color: #df2736;
+
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition: all 0.3s;
+}
+
+.log_out__button:hover{
+    background-color: #a11e29;
+}
+
+.information{
+    width: calc(80% - 30px);
+    padding: 15px;
+}
+
+.user{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.user__input{
+    height: 40px;
+
+    background-color: #6f6f6f;
+    color: #fff;
+
+    font-size: 18px;
+    font-weight: 400;
+
+    padding-left: 10px;
+
+    border: none;
+    border-radius: 10px;
+}
+
+.user__input::placeholder{
+    font-size: 18px;
+    font-weight: 400;
+    color: #ddd;
+}
+
+.user__input:disabled{
+    background-color: #494949;
+}
+
+.block_title{
+    font-size: 22px;
+    font-weight: 500;
+
+    margin-bottom: 15px;
+}
+
+.user__block{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.user__change_info{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 300px 300px;
+    margin-bottom: 20px;
+}
+
+.user_profile_type{
+    height: 42px;
+    width: 290px;
+
+    background-color: #494949;
+    color: #fff;
+
+    font-size: 18px;
+    font-weight: 400;
+
+    padding-left: 10px;
+
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+}
+
+.change_info{
+    height: 40px;
+    width: 300px;
+
+    background-color: #e79d25;
+    color: #fff;
+
+    font-size: 18px;
+    font-weight: 400;
+
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition: all 0.3s;
+}
+
+.change_info:hover{
+    background-color: #cf8c20;
+}
+
+.change_password_block{
+    display: grid;
+    grid-template-columns: 300px;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.change_password{
+    height: 40px;
+    width: 300px;
+
+    background-color: #1d8686;
+    color: #fff;
+
+    font-size: 18px;
+    font-weight: 400;
+
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition: all 0.3s;
+}
+
+.change_password:hover{
+    background-color: #176868;
+}
+
+.user__delete{
+    height: 100%;
+    margin-top: auto;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
+.delete_profile{
+    height: 40px;
+    width: 300px;
+
+    margin-left: 20px;
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 18px;
+    font-weight: 400;
+
+    color: #fff;
+    background-color: #df2736;
+
+    cursor: pointer;
+    
+    transition: all 0.3s;
+}
+
+.delete_profile:hover{
+    background-color: #a11e29;
+}
+
+.save_button {
+    height: 40px;
+    width: 300px;
+
+    margin-top: 20px;
+
+    background-color: #46b425;
+    color: #fff;
+
+    font-size: 18px;
+    font-weight: 400;
+
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition: all 0.3s;
+}
+
+.save_button:hover{
+    background-color: #378f1c;
+}

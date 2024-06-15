@@ -67,6 +67,7 @@ export const TaskList = () => {
         <div className={styles.search}>
             <button onClick={searchTask} className={styles.search_button}>Поиск</button>
             <input type='text' className={styles.search_input}/>
+            <Link to="/task/add" className={styles.add_task_button}>Создать задачу</Link>
         </div>
         {taskList.map((item) => 
           <Link to={'/task/'+item.index} className={styles.task}>
@@ -74,7 +75,8 @@ export const TaskList = () => {
             <span className={styles.task_title}>{item.title}</span>
             <div className={styles.task_mentor}>
                 <span className={styles.mentor_title}>Наставник</span>
-                <span className={styles.mentor_name}>{item.mentor}</span>
+                {/* <span className={styles.mentor_name}>{item.mentor}</span> */}
+                <span className={styles.mentor_name}>Sylvia Robinson</span>
             </div>
             <span className={styles.task_date}>До {endDate(item.finish_task)}</span>
           </Link>

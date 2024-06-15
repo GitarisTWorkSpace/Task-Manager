@@ -85,6 +85,7 @@
     width: 50%;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
@@ -93,7 +94,13 @@
     border-right: 1px solid #343434;
 }
 
+.status_title{
+    font-size: 20px;
+}
+
 .status_dropdown{
+    margin-top: 5px;
+
     height: 30px;
     width: 50%;
 
@@ -125,12 +132,14 @@
 }
 
 .mentor_name{
+    margin-top: 5px;
+
     color: #fff;
 
     padding: 5px 10px;
     border-radius: 8px;
 
-    background-color: #343434;
+    background-color: #6f6f6f;
 
     text-decoration: none;
 }
@@ -151,6 +160,9 @@
 
     background-color: #505050;
     border-top: 2px solid #343434;
+
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 .comment_title{
@@ -211,7 +223,7 @@
 
     color: #fff;
 
-    background-color: #343434;
+    background-color: #6F6F6F;
 
     font-size: 16px;
 
@@ -223,7 +235,7 @@
     justify-content: center;
     align-items: center;
 
-    height: 60px;
+    height: 80px;
 }
 
 .score_wrapper{
@@ -233,8 +245,51 @@
     border-top: 2px solid #343434;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
     background-color: #505050;
+}
+
+.score_title{
+    font-size: 20px;
+}
+
+.score_input{
+    margin-top: 5px;
+
+    background-color: #343434;
+    color: #fff;
+
+    height: 24px;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 18px;
+}
+
+.edit{
+    position: absolute;
+
+    height: 30px;
+    width: 120px;
+
+    border-radius: 8px;
+
+    background-color: #6f6f6f;
+    padding-top: 5px;
+    padding-left: 10px;
+
+    left: 26.5%;
+    top: 8%;
+}
+
+.edit_button{
+    font-size: 16px;
+
+    color: #fff;
+
+    text-decoration: none;
 }

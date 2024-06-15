@@ -3,7 +3,6 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    height: 100vh;
     color: #fff;
 }
 
@@ -98,48 +97,25 @@
 .select{
     width: 85%;
     height: 40px;
-    margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    margin-bottom: 20px;
 }
 
-.select__button{
-    height: 100%;
-    width: 48%;
-
-    border: none;
-    border-radius: 20px;
-
+.role_dropdown{
     background-color: #6F6F6F;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-size: 18px;
-    font-weight: 400;
-
-    cursor: pointer;
-    color: #fff;
-}
-
-.select__button__activ{
-    height: 100%;
-    width: 48%;
+    height: 40px;
+    width: 100%;
 
     border: none;
-    border-radius: 20px;
+    border-radius: 25px;
 
-    background-color: #575757;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding-left: 25px;
 
     font-size: 18px;
     font-weight: 400;
-
-    cursor: pointer;
     color: #fff;
 }

@@ -37,7 +37,7 @@
 
 .search_input{
     height: 38px;
-    width: calc(100% - 120px);
+    width: calc(80% - 120px);
 
     border: none;
     border-top-right-radius: 15px;
@@ -49,6 +49,29 @@
     padding-left: 10px;
 
     font-size: 18px;
+}
+
+.add_task_button{
+    height: 35px;
+    width: 220px;
+
+    display: flex;
+    justify-content: center;
+
+    padding-top: 5px;
+
+    margin-left: 20px;
+
+    border: none;
+    border-radius: 12px;
+
+    background-color: #505050;
+    color: #fff;
+
+    font-size: 20px;
+    font-weight: 400;
+
+    text-decoration: none;
 }
 
 .task{
